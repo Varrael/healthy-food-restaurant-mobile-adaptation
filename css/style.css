@@ -1,0 +1,388 @@
+/* Основные стили */
+:root {
+  --primary-color: #4CAF50;
+  --secondary-color: #FF9800;
+  --dark-color: #333;
+  --light-color: #f8f9fa;
+  --text-color: #555;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Герой-секция */
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.hero-content {
+  z-index: 2;
+}
+
+/* Секции */
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  position: relative;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-color);
+}
+
+/* Карточки */
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin-bottom: 30px;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Меню */
+.menu-item {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-item h6 {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Отзывы */
+.testimonial-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.stars {
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+}
+
+.customer {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.customer img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+/* Кнопки */
+.btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #3e8e41;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    text-align: center;
+    padding-top: 80px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .card-img-top {
+    height: 200px;
+  }
+  
+  .section {
+    padding: 40px 0;
+  }
+}
+
+/* Специальные классы из оригинального CSS с адаптацией */
+.u-text-uppercase {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-margin-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Анимация счетчиков */
+[data-animation-name="counter"] {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+/* Карусель */
+.carousel-item {
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Галерея */
+.gallery-item {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 30px;
+}
+
+/* Форма */
+.contact-form .form-control {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.contact-form .form-control:focus {
+  box-shadow: none;
+  border-color: var(--primary-color);
+}
+
+
+/* Добавляем параллакс-эффект для основных секций */
+.parallax {
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Герой-секция с параллаксом */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  z-index: 1;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  z-index: 0;
+  transform: translateZ(0);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+/* Секция "О нас" с параллаксом */
+.about-section {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+}
+
+.about-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+  opacity: 0.15;
+}
+
+.about-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Галерея с параллакс-эффектом */
+.gallery-item {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.gallery-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.1);
+}
+
+/* Отзывы с параллаксом */
+.testimonials-section {
+  position: relative;
+  padding: 100px 0;
+  color: white;
+  overflow: hidden;
+}
+
+.testimonials-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+.testimonials-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.testimonials-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Адаптивность для параллакса */
+@media (max-width: 768px) {
+  .parallax,
+  .about-bg,
+  .testimonials-bg {
+    background-attachment: scroll;
+  }
+  
+  .hero-section {
+    background-attachment: scroll;
+  }
+  
+  .gallery-item {
+    height: 300px;
+  }
+}
+
+/* Анимация параллакса */
+@keyframes parallax {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}
+
+/* Добавляем JavaScript-активируемый класс */
+.parallax-active .hero-bg {
+  animation: parallax 10s infinite alternate ease-in-out;
+}
