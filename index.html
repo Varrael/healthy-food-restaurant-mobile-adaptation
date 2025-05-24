@@ -145,6 +145,30 @@
             }
         }
     </style>
+    <script>
+// Параллакс эффект
+document.addEventListener('DOMContentLoaded', function() {
+  const parallaxBg = document.querySelector('.parallax-bg');
+  
+  if (parallaxBg) {
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.pageYOffset;
+      parallaxBg.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+    });
+  }
+  
+  // Навбар при скролле
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+});
+</script>
+
 </head>
 <body>
     <!-- Navigation -->
@@ -167,9 +191,9 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-  <div class="hero-parallax"></div>
-  <div class="container hero-content">
+   <section class="parallax-section">
+  <div class="parallax-bg"></div>
+  <div class="container parallax-content">
     <div class="row align-items-center">
       <div class="col-lg-6">
         <h1 class="display-4 fw-bold mb-4">One Step to Making a Good Start</h1>
@@ -191,7 +215,7 @@
      </div>
     <div class="parallax-foreground" style="background-image: url('images/foreground.png');"></div>
     </div>
-    
+
     <!-- About Section -->
     <section id="about" class="py-5 bg-light">
         <div class="container">

@@ -63,21 +63,3 @@ document.addEventListener('DOMContentLoaded', function() {
   initNavbar();
 });
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const parallaxBg = document.querySelector('.parallax-bg');
-  const parallaxFg = document.querySelector('.parallax-foreground');
-  
-  window.addEventListener('scroll', function() {
-    const scrollY = window.scrollY;
-    
-    if (parallaxBg) {
-      parallaxBg.style.transform = `translate3d(0, ${scrollY * 0.4}px, -1px) scale(2)`;
-    }
-    
-    if (parallaxFg) {
-      parallaxFg.style.transform = `translate3d(-50%, calc(-50% + ${scrollY * 0.8}px), 0.5px) scale(0.5)`;
-    }
-  });
-});
-</script>

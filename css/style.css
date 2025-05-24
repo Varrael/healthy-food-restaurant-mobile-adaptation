@@ -53,3 +53,39 @@
     display: none;
   }
 }
+
+
+/* Параллакс стили */
+.parallax-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('images/hero-bg.jpg') center/cover;
+  transform: translateZ(0);
+  will-change: transform;
+  z-index: -1;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+/* Отключаем параллакс на мобильных */
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}
