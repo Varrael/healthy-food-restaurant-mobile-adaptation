@@ -1,94 +1,149 @@
-.parallax-wrapper {
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  perspective: 1px;
+/* CSS */
+.u-hero {
   position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
-.parallax-bg {
+.u-hero-restaurant {
+  background-image: url('images/foreground.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.u-hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 150%;
-  background-size: cover;
-  background-position: center;
-  transform: translateZ(-1px) scale(2);
-  z-index: -1;
-  filter: brightness(0.7);
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-.parallax-content {
-  position: relative;
-  transform: translateZ(0);
-  padding: 100px 20px;
-  color: white;
-  text-align: center;
-  z-index: 1;
-}
-
-.parallax-foreground {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120%;
-  height: 120%;
-  transform: translateZ(0.5px) scale(0.5) translate(-50%, -50%);
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: 2;
-  opacity: 0.8;
-}
-
-@media (max-width: 768px) {
-  .parallax-wrapper {
-    perspective: none;
-  }
-  .parallax-bg {
-    transform: none !important;
-    height: 100%;
-  }
-  .parallax-foreground {
-    display: none;
-  }
-}
-
-
-.parallax-section {
-  background-image: url('images/foreground.png');
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
-
-
-.parallax-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
+.u-container {
   width: 100%;
-  height: 100%;
-  background: url('images/hero-bg.jpg') center/cover;
-  transform: translateZ(0);
-  will-change: transform;
-  z-index: -1;
-}
-
-.parallax-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
   position: relative;
-  z-index: 1;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  color: white;
+  z-index: 2;
 }
 
-/* Отключаем параллакс на мобильных */
-@media (max-width: 768px) {
-  .parallax-bg {
-    background-attachment: scroll;
+.u-hero-content {
+  color: #fff;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  animation: u-fadeInUp 1s ease-out;
+}
+
+.u-hero-title {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.u-hero-text {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.u-hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.u-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.u-button-primary {
+  color: #fff;
+  background-color: #e67e22;
+  border: 2px solid #e67e22;
+}
+
+.u-button-primary:hover {
+  background-color: #d35400;
+  border-color: #d35400;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.u-button-white {
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid #fff;
+}
+
+.u-button-white:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.u-hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-size: 14px;
+  z-index: 2;
+  animation: u-bounce 2s infinite;
+}
+
+.u-hero-scroll svg {
+  margin-top: 8px;
+}
+
+@keyframes u-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes u-bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-20px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-10px) translateX(-50%);
   }
 }
